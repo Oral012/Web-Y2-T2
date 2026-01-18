@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/edit.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="primary-btn" onclick="openDialog()">Add question</button>
+    <div id="questionlist"></div>
+    <dialog id="create-newQ">
+      <div class="primary-btn"><h2>Create New Question</h2></div>
+
+      <div class="body-dl">
+        <h3>Title:</h3>
+        <input type="text" placeholder="Question Title" /><br /><br />
+        <h3>Answers:</h3>
+        <input type="text" placeholder="Answer A" /><br /><br />
+        <input type="text" placeholder="Answer B" /><br /><br />
+        <input type="text" placeholder="Answer C" /><br /><br />
+        <input type="text" placeholder="Answer D" /><br /><br />
+      
+      <button type="submit" class="primary-btn">Create</button>
+      <button type="button" class="primary-btn" onclick="closeDialog()">
+        Cancel
+      </button>
+    </div>
+    </dialog>
+    <script src="../../view/edit/edit.js"></script>
+  </body>
+</html>
