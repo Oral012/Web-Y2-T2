@@ -5,10 +5,10 @@ function App() {
   /* Contants used in this component */
   const DOLLAR_TO_EURO_RATIO = 0.92;
   const DOLLAR_TO_RIEL_RATIO = 4100;
-
+  
   // State
   const [valueDollars, setValueDollars] = useState(15);
-
+  let plus5 = valueDollars;
   // Convert the given value in dollars to a value in euro
   function dollarToEuro(valueInDollars) {
     return valueInDollars * DOLLAR_TO_EURO_RATIO;
@@ -20,6 +20,8 @@ function App() {
   }
   function increasePrice() {
     // TODO Update the value in dollars by increasing it by 5
+    plus5+=5;
+    return setValueDollars = plus5;
   }
   return (
     <main>
@@ -35,7 +37,7 @@ function App() {
         <label>Value in Euro</label>
         <input disabled value={dollarToEuro(valueDollars)} />
         {/* TODO */}
-        <button>Increase Price + 5</button>
+        <button onClick={increasePrice}>Increase Price + 5</button>
 
       </p>
     </main>
