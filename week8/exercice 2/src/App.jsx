@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import StuffForm from "./components/StuffForm";
 import StuffCard from "./components/StuffCard";
@@ -20,14 +20,17 @@ const INITIAL_STUFFS = [
 
 export default function App() {
   const [stuffs, setStuffs] = React.useState(INITIAL_STUFFS);
-
+  // const newSuffs = {...stuffs, name: StuffForm.name, price: StuffForm.price}
+  const click = (newStuffs)=> setStuffs([...stuffs,newStuffs]);
+ console.log(stuffs)
+   
   return (
     <>
       <header>
         <h1>My Stuff</h1>
       </header>
 
-      <StuffForm></StuffForm>
+      <StuffForm onAdd={click}></StuffForm>
 
       <div className="stuff-list">
         {stuffs.map((stuff, index) => (

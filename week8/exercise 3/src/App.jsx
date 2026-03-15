@@ -21,9 +21,19 @@ const ORDERS = [
   },
 ];
 
+function calculateTotal(orders) {
+  return orders.reduce((sum, order) => sum + order.price * order.quantity, 0);
+}
+
 export default function App() {
   const [orders, setOrders] = React.useState(ORDERS);
+  
+  const updateQ = (index, newQ) => {
+    setOrders(orders => orders.map((order, i) => i === index ? {...order, quantity: newQ} : order));
+  };
 
+  const total = calculateTotal(orders);
+  
   return (
     <>
       <header>
@@ -31,10 +41,12 @@ export default function App() {
       </header>
 
       <div className="order-list">
-        <OrderCard></OrderCard>
+        {orders.map((order, index) => (
+          <OrderCard key={index} order={order} index={index} updateQ={updateQ} />
+        ))}
       </div>
 
-      <CheckoutButton total="TODO"></CheckoutButton>
+      <CheckoutButton total={total} />
     </>
   );
 }
